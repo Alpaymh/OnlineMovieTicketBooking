@@ -1,0 +1,86 @@
+/*
+Template Name:Cinema Zone
+File: Layout CSS
+Author: Templates On Web
+Author URI: http://templateonweb.com/
+Licence: <a href="http://www.templateonweb.com/terms.php?v=content&contentid=152">Website Template Licence</a>
+*/
+/*********************pricing****************/
+.center_pricing{
+  padding-top:40px;
+  padding-bottom:50px;
+  }
+.center_pricing_1 h1{
+font-size: 60px;  
+  }
+.center_pricing_1{
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  }
+.center_pricing_1 ul {
+    margin-top: 40px;
+}
+.center_pricing_1 ul li {
+    display: inline-block;
+    margin-right: 60px;
+}
+.center_pricing_1 ul li .tag_1 {
+    color: #666;
+    font-weight: bold;
+}
+.center_pricing_1 ul li .tag_2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #000;
+}
+.center_pricing_1 ul li .tag_3 {
+    color: #999;
+}
+.center_pricing_1  p{
+ margin-top:30px;
+}
+.center_pricing_1  h2{
+ font-weight:bold;
+ font-size:35px;
+ border-bottom:1px solid #ddd;
+ padding-bottom:15px;
+ margin-top:20px;
+}
+.center_pricing_1 .para_1{
+ margin-top:15px;
+}
+/*********************pricing_end****************/
+
+
+@media screen and (max-width : 767px){
+.center_pricing_1 ul li{
+margin-right:10px;
+margin-left:10px;
+margin-bottom:10px;
+  }
+.center_pricing_1 {
+ text-align:center;
+ width:100%; 
+  }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+.center_pricing_1{
+width:100%;
+  }
+.center_pricing_1 ul li{
+  margin-right:30px;
+  }
+}
+ @media (min-width:992px) and (max-width:1200px) {
+.center_pricing_1 ul li{
+  margin-right:40px;
+  }
+ }
+@media (min-width:1201px) and (max-width:1275px) {
+
+ }
+
+
+

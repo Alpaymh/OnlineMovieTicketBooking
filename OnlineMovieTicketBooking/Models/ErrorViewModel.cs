@@ -1,3 +1,5 @@
+
+
 namespace OnlineMovieTicketBooking.Models
 {
     public class ErrorViewModel

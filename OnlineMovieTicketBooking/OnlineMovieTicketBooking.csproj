@@ -6,4 +6,143 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="wwwroot\css\bootstrap.min.css" />
+    <Content Remove="wwwroot\css\contact.css" />
+    <Content Remove="wwwroot\css\detail.css" />
+    <Content Remove="wwwroot\css\events.css" />
+    <Content Remove="wwwroot\css\font-awesome.min.css" />
+    <Content Remove="wwwroot\css\global.css" />
+    <Content Remove="wwwroot\css\index.css" />
+    <Content Remove="wwwroot\css\pages.css" />
+    <Content Remove="wwwroot\css\pricing.css" />
+    <Content Remove="wwwroot\fonts\fontawesome-webfont.eot" />
+    <Content Remove="wwwroot\fonts\fontawesome-webfont.svg" />
+    <Content Remove="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <Content Remove="wwwroot\fonts\fontawesome-webfont.woff" />
+    <Content Remove="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <Content Remove="wwwroot\fonts\FontAwesome.otf" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <Content Remove="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Remove="wwwroot\img\1.jpg" />
+    <Content Remove="wwwroot\img\10.jpg" />
+    <Content Remove="wwwroot\img\11.jpg" />
+    <Content Remove="wwwroot\img\12.jpg" />
+    <Content Remove="wwwroot\img\13.jpg" />
+    <Content Remove="wwwroot\img\14.jpg" />
+    <Content Remove="wwwroot\img\15.jpg" />
+    <Content Remove="wwwroot\img\16.jpg" />
+    <Content Remove="wwwroot\img\17.jpg" />
+    <Content Remove="wwwroot\img\18.jpg" />
+    <Content Remove="wwwroot\img\19.png" />
+    <Content Remove="wwwroot\img\2.jpg" />
+    <Content Remove="wwwroot\img\20.jpg" />
+    <Content Remove="wwwroot\img\21.jpg" />
+    <Content Remove="wwwroot\img\22.jpg" />
+    <Content Remove="wwwroot\img\23.jpg" />
+    <Content Remove="wwwroot\img\24.jpg" />
+    <Content Remove="wwwroot\img\25.jpg" />
+    <Content Remove="wwwroot\img\26.jpg" />
+    <Content Remove="wwwroot\img\27.jpg" />
+    <Content Remove="wwwroot\img\28.jpg" />
+    <Content Remove="wwwroot\img\29.jpg" />
+    <Content Remove="wwwroot\img\3.jpg" />
+    <Content Remove="wwwroot\img\30.jpg" />
+    <Content Remove="wwwroot\img\31.jpg" />
+    <Content Remove="wwwroot\img\32.jpg" />
+    <Content Remove="wwwroot\img\33.jpg" />
+    <Content Remove="wwwroot\img\34.jpg" />
+    <Content Remove="wwwroot\img\35.jpg" />
+    <Content Remove="wwwroot\img\36.jpg" />
+    <Content Remove="wwwroot\img\37.jpg" />
+    <Content Remove="wwwroot\img\4.jpg" />
+    <Content Remove="wwwroot\img\5.jpg" />
+    <Content Remove="wwwroot\img\6.jpg" />
+    <Content Remove="wwwroot\img\7.jpg" />
+    <Content Remove="wwwroot\img\8.jpg" />
+    <Content Remove="wwwroot\img\9.jpg" />
+    <Content Remove="wwwroot\js\bootstrap.min.js" />
+    <Content Remove="wwwroot\js\jquery-2.1.1.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\contact.css" />
+    <None Include="wwwroot\css\detail.css" />
+    <None Include="wwwroot\css\events.css" />
+    <None Include="wwwroot\css\font-awesome.min.css" />
+    <None Include="wwwroot\css\global.css" />
+    <None Include="wwwroot\css\index.css" />
+    <None Include="wwwroot\css\pages.css" />
+    <None Include="wwwroot\css\pricing.css" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\img\1.jpg" />
+    <None Include="wwwroot\img\10.jpg" />
+    <None Include="wwwroot\img\11.jpg" />
+    <None Include="wwwroot\img\12.jpg" />
+    <None Include="wwwroot\img\13.jpg" />
+    <None Include="wwwroot\img\14.jpg" />
+    <None Include="wwwroot\img\15.jpg" />
+    <None Include="wwwroot\img\16.jpg" />
+    <None Include="wwwroot\img\17.jpg" />
+    <None Include="wwwroot\img\18.jpg" />
+    <None Include="wwwroot\img\19.png" />
+    <None Include="wwwroot\img\2.jpg" />
+    <None Include="wwwroot\img\20.jpg" />
+    <None Include="wwwroot\img\21.jpg" />
+    <None Include="wwwroot\img\22.jpg" />
+    <None Include="wwwroot\img\23.jpg" />
+    <None Include="wwwroot\img\24.jpg" />
+    <None Include="wwwroot\img\25.jpg" />
+    <None Include="wwwroot\img\26.jpg" />
+    <None Include="wwwroot\img\27.jpg" />
+    <None Include="wwwroot\img\28.jpg" />
+    <None Include="wwwroot\img\29.jpg" />
+    <None Include="wwwroot\img\3.jpg" />
+    <None Include="wwwroot\img\30.jpg" />
+    <None Include="wwwroot\img\31.jpg" />
+    <None Include="wwwroot\img\32.jpg" />
+    <None Include="wwwroot\img\33.jpg" />
+    <None Include="wwwroot\img\34.jpg" />
+    <None Include="wwwroot\img\35.jpg" />
+    <None Include="wwwroot\img\36.jpg" />
+    <None Include="wwwroot\img\37.jpg" />
+    <None Include="wwwroot\img\4.jpg" />
+    <None Include="wwwroot\img\5.jpg" />
+    <None Include="wwwroot\img\6.jpg" />
+    <None Include="wwwroot\img\7.jpg" />
+    <None Include="wwwroot\img\8.jpg" />
+    <None Include="wwwroot\img\9.jpg" />
+    <None Include="wwwroot\js\bootstrap.min.js" />
+    <None Include="wwwroot\js\jquery-2.1.1.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>
