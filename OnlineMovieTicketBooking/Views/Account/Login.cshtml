@@ -1,1 +1,36 @@
-﻿Login Page
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Giriş Yap - ";
+}
+
+<div class="row" >
+    <div class="col-4 offset-4">
+        <h2 class="display-4 border-bottom text-center pb-2" ><br />Giriş Yap<br /></h2><hr/>
+    </div>
+</div>
+
+<div class="tab-content clearfix" style="margin-bottom:260px;display:flex;justify-content: center;align-items: center;">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="KullaniciAdi" class="form-label">Kullanıcı Adı</label>
+                <input asp-for="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" style="width:300px" />
+                <span asp-validation-for="KullaniciAdi" class="text-danger small"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label  asp-for="Sifre" class="form-label">Şifre</label>
+                <input  asp-for="Sifre" type="password" class="form-control" placeholder="Şifre" />
+                <span asp-validation-for="Sifre" class="text-danger small"></span>
+            </div>
+            
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-primary d-block" style="width:300px;"><i class="fa-solid fa-right-to-bracket me-2"></i> &nbsp; Giriş Yap</button>
+            </div>
+            <hr />
+        </form>
+    </div>
+</div>

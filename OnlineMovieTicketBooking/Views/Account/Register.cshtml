@@ -1,0 +1,59 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Kayıt Ol - ";
+}
+
+<div class="row" >
+    <div class="col-4 offset-4">
+        <h2 class="display-4 border-bottom text-center pb-2" ><br />Kayıt Ol<br /></h2><hr/>
+    </div>
+</div>
+
+<div class="tab-content clearfix" style="margin-bottom:100px;display:flex;justify-content: center;align-items: center;">
+    <div class="col-4 offset-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+            <div class="form-group mb-3">
+                <label  asp-for="Ad" class="form-label">Ad</label>
+                <input  asp-for="Ad" class="form-control" placeholder="Ad" />
+                <span asp-validation-for="Ad" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label  asp-for="Soyad" class="form-label">Soyad</label>
+                <input  asp-for="Soyad" class="form-control" placeholder="Soyad" />
+                <span asp-validation-for="Soyad" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="KullaniciAdi" class="form-label">Kullanıcı Adı</label>
+                <input asp-for="KullaniciAdi" class="form-control" placeholder="Kullanıcı Adı" style="width:400px" />
+                <span asp-validation-for="KullaniciAdi" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label  asp-for="Telefon" class="form-label">Telefon</label>
+                <input  asp-for="Telefon" type="tel" class="form-control" placeholder="Telefon" />
+                <span asp-validation-for="Telefon" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label  asp-for="Email" class="form-label">Email</label>
+                <input  asp-for="Email" class="form-control" placeholder="Email" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label  asp-for="Sifre" class="form-label">Şifre</label>
+                <input  asp-for="Sifre" type="password" class="form-control" placeholder="Şifre" />
+                <span asp-validation-for="Sifre" class="text-danger small"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label  asp-for="TekrarSifre" class="form-label">Tekrar Şifre</label>
+                <input  asp-for="TekrarSifre" type="password" class="form-control" placeholder="Tekrar Şifre" />
+                <span asp-validation-for="TekrarSifre" class="text-danger small"></span>
+            </div>
+            
+            <div class="form-group d-grid mb-3">
+                <button type="submit" class="btn btn-success d-block" style="width:400px;"><i class="fa-solid fa-user-plus me-2"></i> &nbsp; Kayıt Ol</button>
+            </div>
+            <hr />
+        </form>
+    </div>
+</div>

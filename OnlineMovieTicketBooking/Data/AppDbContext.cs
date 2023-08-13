@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore; 
-using Microsoft.Extensions.Configuration; 
-using OnlineMovieTicketBooking.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using OnlineMovieTicketBooking.Entities;
 
 namespace OnlineMovieTicketBooking.Data
 {
