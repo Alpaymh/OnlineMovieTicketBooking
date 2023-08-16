@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Profil ";
+}
+
+<div class="row" >
+    <div class="col-4 offset-4">
+        <h2 class="display-4 border-bottom text-center pb-2" style="margin-left:22px"><br />Profil<br /></h2><hr/>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;display:flex;justify-content:center">
+    
+    
+    <div class="col-6">
+        <form asp-action="ProfileChangeImage" enctype="multipart/form-data">
+            <div class="row">
+            <div class="image-container">
+                <img src="~/uploads/@ViewData["ProfileImage"]" class="img-thumbnail"/>
+            </div>
+            <input type="file" name="file" style="height:50px" class="form-control" accept=".jpg"/>
+            <button class="btn btn-secondary btntest" type="submit" style="width:410px;">
+                <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+            </button>
+        </div>
+        </form>
+        
+    </div>
+    <div class="col-4 d-flex" style="margin-top:80px">
+
+
+        <form method="post" asp-action="ProfileChangeName" style="margin-left:80px">Ad: &nbsp;
+            <label class="form-label small">    
+                <input name="name" style="width:300px" type="text" class="form-control" placeholder="" value="@ViewData["Name"]" /></label>
+            <button class="btn btn-secondary btntest-2">
+            <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+        </button><br /><br />
+        </form>
+        <form method="post" asp-action="ProfileChangeSurname" style="margin-left:61px">Soyad: &nbsp;
+            <label class="form-label small">    
+                <input name="surname" style="width:300px" type="text" class="form-control" placeholder="" value="@ViewData["Surname"]" /></label>
+            <button class="btn btn-secondary btntest-2">
+            <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+        </button><br /><br />
+        </form>
+        <form method="post" asp-action="ProfileChangeUserName" style="margin-left:18px">Kullanıcı Adı: &nbsp;
+            <label class="form-label small">    
+                <input name="username" style="width:300px" type="text" class="form-control" placeholder="" value="@ViewData["UserName"]" /></label>
+            <button class="btn btn-secondary btntest-2">
+            <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+        </button><br /><br />
+        </form>
+        <form method="post" asp-action="ProfileChangeTel" style="margin-left:53px">Telefon: &nbsp;
+            <label class="form-label small">    
+                <input name="tel" style="width:300px" type="text" class="form-control" placeholder="" value="@ViewData["Tel"]" /></label>
+            <button class="btn btn-secondary btntest-2">
+            <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+        </button><br /><br />
+        </form>
+         <form method="post" asp-action="ProfileChangeEmail" style="margin-left:58px">E-mail: &nbsp;
+            <label class="form-label small">    
+                <input name="email" style="width:300px" type="text" class="form-control" placeholder="" value="@ViewData["Email"]" /></label>
+            <button class="btn btn-secondary btntest-2">
+            <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+        </button><br /><br />
+        </form>
+        <form method="post" asp-action="ProfileChangePassword" style="margin-left:60px">Şifre: &nbsp;&nbsp;&nbsp;&nbsp;
+            <label class="form-label small">
+                <input name="password" style="width:300px" type="password" class="form-control" placeholder="" /></label>
+            <button class="btn btn-secondary btntest-2">
+            <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+        </button>
+        @if (ViewData["result"] != null &&  ViewData["result"] == "PasswordChanged")
+            {
+                <br><span class="text-success small">Şifre Güncellendi.</span>   
+            }
+            <div class="col-12 my-3"> 
+                    <div class="mb-4">
+                        <div asp-validation-summary="All" class="text-danger small"></div>
+                    </div>
+             </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @if (ViewData["result"] != null)
+    {
+        <script>
+            toastr["success"]("İşleminiz başarıyla gerçekleşmiştir.", "Başarılı")
+        </script>
+    }
+}

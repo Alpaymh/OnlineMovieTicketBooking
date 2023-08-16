@@ -14,7 +14,6 @@ namespace OnlineMovieTicketBooking.Entities
         public int SeansID { get; set; }
         [Required(ErrorMessage = ErrorMessages.RequiredField)]
         public DateTime SatinAlmaTarihi { get; set; } = DateTime.Now;
-
         public Uye Uye { get; set; }
         public Seans Seans { get; set; }
     }

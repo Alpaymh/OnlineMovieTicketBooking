@@ -19,7 +19,7 @@ namespace OnlineMovieTicketBooking.Entities
         [StringLength(30, ErrorMessage = "Kullanıcı Adı " + ErrorMessages.MaxLength30)]
         public string KullaniciAdi { get; set; }
         [Required(ErrorMessage = "Telefon " + ErrorMessages.RequiredField)]
-        [StringLength(15, ErrorMessage = "Şifre " + ErrorMessages.MaxLength15)]
+        [StringLength(15, ErrorMessage = "Telefon " + ErrorMessages.MaxLength15)]
         public string? Telefon { get; set; }
 
         [Required(ErrorMessage = "Email " + ErrorMessages.RequiredField)]
@@ -29,7 +29,11 @@ namespace OnlineMovieTicketBooking.Entities
         [StringLength(100, ErrorMessage = "Şifre " + ErrorMessages.MaxLength100)]
         public string Sifre { get; set; }
         public bool Kilit { get; set; } = false;
-        public bool Admin { get; set; } = false;
+        public int RolID { get; set; } = 1;
+        
+        [StringLength(100, ErrorMessage = "Resim Dosya İsim " + ErrorMessages.MaxLength255)]
+        public string? ProfilResimDosyası { get; set; } = "no-profile.jpg";
+        public Rol Rol { get; set; }
         public ICollection<Bilet> Biletler { get; set; }
     }
 }

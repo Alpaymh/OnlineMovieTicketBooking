@@ -21,7 +21,7 @@ builder.Services
         options.SlidingExpiration = false;
         options.LoginPath = "/Account/Login";
         options.LogoutPath = "/Account/Logout";
-        options.AccessDeniedPath = "/Home/AccesDenied";
+        options.AccessDeniedPath = "/Home/AccessDenied";
     });
 
 
