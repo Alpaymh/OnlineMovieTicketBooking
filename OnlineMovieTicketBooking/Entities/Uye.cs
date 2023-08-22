@@ -6,7 +6,7 @@ namespace OnlineMovieTicketBooking.Entities
 {
     [Table("Uyeler")]
     public class Uye
-    {
+    { 
         public int Id { get; set; }
         [Required(ErrorMessage = "Ad " + ErrorMessages.RequiredField)]
         [StringLength(50, ErrorMessage = "Ad " + ErrorMessages.MaxLength50)]
@@ -34,7 +34,7 @@ namespace OnlineMovieTicketBooking.Entities
         [StringLength(100, ErrorMessage = "Resim Dosya İsim " + ErrorMessages.MaxLength255)]
         public string? ProfilResimDosyası { get; set; } = "no-profile.jpg";
         public Rol Rol { get; set; }
-        public ICollection<Bilet> Biletler { get; set; }
+        public ICollection<Siparis> Siparişler { get; set; }
     }
 }
 

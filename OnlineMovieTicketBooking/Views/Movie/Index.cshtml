@@ -1,0 +1,72 @@
+﻿@model List<MovieModel> 
+@{
+    ViewData["Title"] = "Film İşlemleri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Film İşlemleri<br /></h2>
+        </div>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Film İşlemleri</h5>
+              <a asp-action="Add" type="button" class="btn btn-success">Film Ekle</a>
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Film Adı</th>
+                    <th scope="col">Kategori</th>
+                    <th scope="col">Resmi</th>
+                    <th scope="col">Dil</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Aktif Mi?</th>
+                    <th scope="col">İşlemler</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var movie in Model)
+                       {
+                           <tr>
+                             <th scope="row">@movie.Id</th>
+                             <td>@movie.FilmAdi</td>
+                             <td>@movie.KategoriAdi</td>
+                             <td>@movie.Resim</td>
+                             <td>@movie.Dil</td>
+                             <td>@movie.Aciklama</td>
+                             <td>
+                                 @if (@movie.AktifMi == false)
+                                      {
+                                         <i class="bi bi-check-lg" style="color:green;font-size:30px"></i> 
+                                      }
+                                 else
+                                      {
+                                         <i class="bi bi-x-circle-fill" style="color:red;font-size:30px"></i>    
+                                      }
+                             </td> 
+                             <td>
+                                 <a asp-action="Edit" asp-route-id="@movie.Id" type="button" class="btn btn-primary">Güncelle</a>
+                                 <a asp-action="Delete" asp-route-id="@movie.Id" onclick="return confirm('@movie.FilmAdi adlı filmi silmek istediğinize emin misiniz?')" type="button" class="btn btn-danger">Sil</a>
+                             </td>
+                          </tr>   
+                       }
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->

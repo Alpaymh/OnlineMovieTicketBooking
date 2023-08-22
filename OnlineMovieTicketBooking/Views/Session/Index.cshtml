@@ -1,0 +1,62 @@
+﻿@model List<SessionModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Seans İşlemleri<br /></h2>
+        </div>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Seans İşlemleri</h5>
+              <a asp-action="Add" type="button" class="btn btn-success">Seans Ekle</a>
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Salon Adi</th>
+                    <th scope="col">Film Adı</th>
+                    <th scope="col">Tarih</th>
+                    <th scope="col">Saat</th>
+                    <th scope="col">Fiyat</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var session in Model)
+                       {
+                           <tr>
+                             <th scope="row">@session.SeansId</th>
+                             <td>@session.SalonAdi</td>
+                             <td>@session.FilmAdi</td>
+                             <td>@session.Tarih</td>
+                             <td>@session.Saat</td> 
+                             <td>@session.Fiyat₺</td>
+                             <td>
+                                 <a asp-action="Edit" asp-route-id="@session.SeansId" type="button" class="btn btn-primary">Güncelle</a>
+                                 <a asp-action="Delete" asp-route-id="@session.SeansId" onclick='return confirm("ID numarası @session.SeansId olan seansı silmek istediğinize emin misiniz?")' type="button" class="btn btn-danger">Sil</a>
+                             </td>
+                          </tr>   
+                       }
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+

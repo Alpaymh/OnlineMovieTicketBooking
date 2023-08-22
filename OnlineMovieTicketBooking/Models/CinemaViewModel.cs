@@ -1,13 +1,26 @@
 ﻿using OnlineMovieTicketBooking.Helpers;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnlineMovieTicketBooking.Entities
+namespace OnlineMovieTicketBooking.Models
 {
-    [Table("SinemaSalonlari")]
-    public class SinemaSalonu
+    public class CinemaModel
     {
         public int Id { get; set; }
+        public string SalonAdi { get; set; }
+        public string Adres { get; set; }
+        public string Telefon { get; set; }
+        public bool PopulerSalon { get; set; } = false;
+        public string Resim { get; set; } = "no-cinema";
+        public double Fiyat { get; set; }
+    }
+
+    public class CreateCinemaModel : EditCinemaModel
+    {
+        public int Id { get; set; }
+    }
+
+    public class EditCinemaModel
+    {
         [StringLength(50, ErrorMessage = "Salon Adı " + ErrorMessages.MaxLength50)]
         [Required(ErrorMessage = "Salon Adı" + ErrorMessages.RequiredField)]
         public string SalonAdi { get; set; }
@@ -20,6 +33,7 @@ namespace OnlineMovieTicketBooking.Entities
         public bool PopulerSalon { get; set; } = false;
         public string Resim { get; set; } = "s_1.jpg";
         public double Fiyat { get; set; }
-        public ICollection<Seans> Seanslar { get; set; }
     }
+
+
 }

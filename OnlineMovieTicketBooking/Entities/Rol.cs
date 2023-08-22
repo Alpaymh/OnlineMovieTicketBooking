@@ -7,7 +7,6 @@ namespace OnlineMovieTicketBooking.Entities
     {
         public int Id { get; set; }
         public string RolAdi { get; set; }
-
         public ICollection<Uye> Uyeler { get; set; }
     }
 }

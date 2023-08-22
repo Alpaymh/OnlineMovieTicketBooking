@@ -1,16 +1,24 @@
 ﻿using OnlineMovieTicketBooking.Helpers;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OnlineMovieTicketBooking.Entities
+namespace OnlineMovieTicketBooking.Models
 {
-    [Table("Filmler")]
-    public class Film
+    public class MovieModel
     {
         public int Id { get; set; }
+        public string KategoriAdi { get; set; }
+        public string FilmAdi { get; set; }
+        public string Resim { get; set; }
+        public string Dil { get; set; }
+        public string Aciklama { get; set; }
+        public bool AktifMi { get; set; } = false;
+    }
+
+    public class CreateMovieModel
+    {
+        public int KategoriID { get; set; }
         [StringLength(50, ErrorMessage = "Film Adı " + ErrorMessages.MaxLength50)]
         [Required(ErrorMessage = "Film Adı " + ErrorMessages.RequiredField)]
-        public int KategoriID { get; set; }
         public string FilmAdi { get; set; }
         [StringLength(50, ErrorMessage = "Resim " + ErrorMessages.MaxLength50)]
         [Required(ErrorMessage = "Resim " + ErrorMessages.RequiredField)]
@@ -20,8 +28,10 @@ namespace OnlineMovieTicketBooking.Entities
         public string Dil { get; set; }
         [Required(ErrorMessage = "Açıklama " + ErrorMessages.RequiredField)]
         public string Aciklama { get; set; }
-        public bool AktifMi { get; set; } = false;
-        public Kategori Kategori { get; set; }
+    }
 
+    public class EditMovieModel : CreateMovieModel
+    {
+        public bool AktifMi { get; set; } = false;
     }
 }

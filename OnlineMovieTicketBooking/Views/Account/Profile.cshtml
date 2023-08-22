@@ -14,14 +14,14 @@
     <div class="col-6">
         <form asp-action="ProfileChangeImage" enctype="multipart/form-data">
             <div class="row">
-            <div class="image-container">
-                <img src="~/uploads/@ViewData["ProfileImage"]" class="img-thumbnail"/>
+                <div class="image-container">
+                    <img src="~/uploads/@ViewData["ProfileImage"]" class="img-thumbnail"/>
+                </div>
+                <input type="file" name="file" style="height:50px" class="form-control" accept=".jpg"/>
+                <button class="btn btn-secondary btntest" type="submit" style="width:410px;">
+                    <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
+                </button>
             </div>
-            <input type="file" name="file" style="height:50px" class="form-control" accept=".jpg"/>
-            <button class="btn btn-secondary btntest" type="submit" style="width:410px;">
-                <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
-            </button>
-        </div>
         </form>
         
     </div>

@@ -1,0 +1,72 @@
+﻿@model List<CinemaModel> 
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Sinema Salonu İşlemleri<br /></h2>
+        </div>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sinema Salonu İşlemleri</h5>
+              <a asp-action="Add" type="button" class="btn btn-success">Sinema Salonu Ekle</a>
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Salon Adı</th>
+                    <th scope="col">Adres</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">Popüler Salon Mu?</th>
+                    <th scope="col">Fiyat</th>
+                    <th scope="col">Resim</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var cinema in Model)
+                       {
+                           <tr>
+                             <th scope="row">@cinema.Id</th>
+                             <td>@cinema.SalonAdi</td>
+                             <td>@cinema.Adres</td>
+                             <td>@cinema.Telefon</td>
+                             <td>
+                                 @if (@cinema.PopulerSalon == true)
+                                      {
+                                         <i class="bi bi-check-lg" style="color:green;font-size:30px;margin-left:60px"></i> 
+                                      }
+                                 else
+                                      {
+                                         <i class="bi bi-x-circle-fill" style="color:red;font-size:30px;margin-left:60px"></i>    
+                                      }
+                             </td> 
+                             <td>@cinema.Fiyat₺</td>
+                             <td>@cinema.Resim</td>
+                             
+                             <td>
+                                 <a asp-action="Edit" asp-route-id="@cinema.Id" type="button" class="btn btn-primary">Güncelle</a>
+                                 <a asp-action="Delete" asp-route-id="@cinema.Id" onclick="return confirm('@cinema.SalonAdi adlı sinema salonunu silmek istediğinize emin misiniz?')" type="button" class="btn btn-danger">Sil</a>
+                             </td>
+                          </tr>   
+                       }
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->

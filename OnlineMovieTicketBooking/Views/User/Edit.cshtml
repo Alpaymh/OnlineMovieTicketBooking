@@ -1,0 +1,70 @@
+﻿@model EditUserModel
+@{
+    ViewData["Title"] = "Üye Düzenle - ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    
+<main id="main" class="main">
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Üye Düzenle<br /></h2>
+        </div>
+    </div>  
+    <section class="section">
+      <div class="row">
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Üye Ekle</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3" method="post" style="margin-left:500px;width:500px;margin-top:10px">
+                <div class="col-12">
+                  <label asp-for="Ad" class="form-label">Ad</label>
+                  <input asp-for="Ad" type="text" class="form-control" id="inputNanme4" />
+                  <span asp-validation-for="Ad" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="Soyad" class="form-label">Soyad</label>
+                  <input asp-for="Soyad" type="text" class="form-control" id="inputNanme4">
+                  <span asp-validation-for="Soyad" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="KullaniciAdi" for="inputPassword4" class="form-label">Kullanıcı Adı</label>
+                  <input asp-for="KullaniciAdi" type="text" class="form-control" id="inputNanme4">
+                  <span asp-validation-for="KullaniciAdi" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="Telefon" class="form-label">Telefon</label>
+                  <input asp-for="Telefon" type="text" class="form-control" id="inputNanme4" >
+                  <span asp-validation-for="Telefon" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="Email" class="form-label">Email</label>
+                  <input asp-for="Email" type="text" class="form-control" id="inputNanme4" >
+                  <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="RolID" class="form-label">Rol</label>
+                  <select asp-for="RolID" type="text" class="form-select" id="inputNanme4" >
+                      <option value="">Lütfen Seçiniz.</option>
+                      <option value="1">Üye</option>
+                      <option value="2">Admin</option>
+                  </select>
+                  <span asp-validation-for="RolID" class="text-danger small"></span>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+              </form><!-- Vertical Form -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+

@@ -41,16 +41,7 @@ namespace OnlineMovieTicketBooking.Controllers
                 Uye uye = _appDbContext.Uyeler.SingleOrDefault(x => x.KullaniciAdi.ToLower() == model.KullaniciAdi.ToLower() &&
                 x.Sifre == hashedPassword);
 
-                //Rol Tablosundaki verileri çekerek uye tablosundaki rolID'yi karşılaştırarak uyenin admin veya uye olduğunu uygulamaya bildirir.
-                var roller = await _appDbContext.Roller.ToListAsync();
-                string rolName = "";
-                 foreach (Rol rol in roller)
-                {
-                    if (uye.RolID == rol.Id) {
-                        rolName = rol.RolAdi;
-                    }
-                }
-
+                
                 if (uye != null)
                 {
                     if (uye.Kilit)
@@ -58,6 +49,17 @@ namespace OnlineMovieTicketBooking.Controllers
                         ModelState.AddModelError(nameof(model.KullaniciAdi), "Sistemde kullanıcı bulunamadı.");
                         return View(model);
                     }
+                    //Rol Tablosundaki verileri çekerek uye tablosundaki rolID'yi karşılaştırarak uyenin admin veya uye olduğunu uygulamaya bildirir.
+                    var roller = await _appDbContext.Roller.ToListAsync();
+                    string rolName = "";
+                    foreach (Rol rol in roller)
+                    {
+                        if (uye.RolID == rol.Id)
+                        {
+                            rolName = rol.RolAdi;
+                        }
+                    }
+
                     List<Claim> claims = new List<Claim>();
                     claims.Add(new Claim(ClaimTypes.NameIdentifier, uye.Id.ToString()));
                     claims.Add(new Claim(ClaimTypes.Name, uye.Ad ?? String.Empty));

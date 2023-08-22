@@ -13,9 +13,9 @@ namespace OnlineMovieTicketBooking.Data
         public virtual DbSet<SinemaSalonu> SinemaSalonlari { get; set; }
         public virtual DbSet<Film> Filmler { get; set; }
         public virtual DbSet<Seans> Seanslar { get; set; }
-        public virtual DbSet<Bilet> Biletler { get; set; }
+        public virtual DbSet<Siparis> Siparişler { get; set; }
         public virtual DbSet<Rol> Roller { get; set; }
-
+        public virtual DbSet<Kategori> Kategoriler { get; set; }
 
     }
 }

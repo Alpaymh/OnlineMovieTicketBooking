@@ -1,0 +1,33 @@
+﻿@model List<ProductModel>
+@{
+    ViewData["Title"] = "Filmler - ";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<div class="row" >
+    <div class="col-4 offset-4">
+        <h2 class="display-4 border-bottom text-center pb-2" style="margin-left:22px"><br />Vizyondaki Filmler<br /></h2><hr/>
+    </div>
+</div>
+
+<section>
+ <div class="container">
+  <div class="row">
+      @foreach (var film  in Model)
+            {
+                if (@film.FilmAdi.Length >= 26)
+                {
+                    string ilkYirmiAltıKarakter = @film.FilmAdi.Substring(0, 26);
+                    @film.FilmAdi = ilkYirmiAltıKarakter + "...";
+                }
+	        <div class="col-sm-3">
+		        <div class="click_2_inner clearfix">
+			        <a href="#"><img src="~/uploads/@film.Resim" width="90%" height="300px"></a>
+				        <p class=""><a href="#" style="color:black">@film.FilmAdi </a></p>
+ 	             </div>
+        	</div>
+            }
+  </div>
+</div>
+			
+</section>

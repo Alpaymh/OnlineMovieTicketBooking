@@ -1,0 +1,72 @@
+﻿@model List<OrderModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main">
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Sipariş İşlemleri<br /></h2>
+        </div>
+    </div>
+    <section class="section">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sipariş İşlemleri</h5>
+              <a asp-action="Add" type="button" class="btn btn-success">Sipariş Ekle</a>
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Adı</th>
+                    <th scope="col">Soyadı</th>
+                    <th scope="col">Kullanıcı Adı</th>
+                    <th scope="col">Telefon</th>
+                    <th scope="col">E-Mail</th>
+                    <th scope="col">Salon Adı</th>
+                    <th scope="col">Film Adı</th>
+                    <th scope="col">Film Tarihi</th>
+                    <th scope="col">Film Saati</th>
+                    <th scope="col">Satın Alınma Tarihi</th>
+                    <th scope="col">Fiyat </th>
+                    <th scope="col">İşlemler</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var order in Model)
+                       {
+                           <tr>
+                             <th scope="row">@order.Id</th>
+                             <td>@order.UyeAdi</td>
+                             <td>@order.UyeSoyadi</td>
+                             <td>@order.UyeKullaniciAdi</td>
+                             <td>@order.UyeTelefon</td> 
+                             <td>@order.UyeEmail</td>
+                             <td>@order.SalonAdi</td>
+                             <td>@order.FilmAdi</td>
+                             <td>@order.FilmTarih</td>
+                             <td>@order.FilmSaat</td>
+                             <td>@order.SatinAlmaTarihi</td>
+                             <td>@order.Fiyat₺</td>
+                             <td>
+                                 <a asp-action="Edit" asp-route-id="@order.Id" type="button" class="btn btn-primary">Güncelle</a>
+                                 <a asp-action="Delete" asp-route-id="@order.Id" onclick='return confirm("ID numarası @order.Id olan siparişi silmek istediğinize emin misiniz?")' type="button" class="btn btn-danger">Sil</a>
+                             </td>
+                          </tr>   
+                       }
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->

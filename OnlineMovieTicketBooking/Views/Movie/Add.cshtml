@@ -1,0 +1,69 @@
+﻿@model CreateMovieModel
+@{
+    ViewData["Title"] = "Film Ekle - ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<main id="main" class="main" >
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Film Ekle<br /></h2>
+        </div>
+    </div> 
+    <section class="section" >
+      <div class="row">
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Film Ekle</h5>
+
+              <!-- Vertical Form -->
+              <form class="row g-3" method="post" style="margin-left:500px;width:500px;margin-top:10px">
+                <div class="col-12 ">
+                  <label asp-for="FilmAdi" class="form-label">Film Adı</label>
+                  <input asp-for="FilmAdi" type="text" class="form-control" id="inputNanme4" />
+                  <span asp-validation-for="FilmAdi" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="KategoriID" for="inputPassword4" class="form-label">Kategori</label>
+                  <select asp-for="KategoriID" type="text" class="form-select" id="inputNanme4" >
+                      <option value="">Lütfen Seçiniz.</option>
+                      <option value="1">Aksiyon</option>
+                      <option value="2">Komedi</option>
+                      <option value="3">Korku</option>
+                      <option value="4">Bilim Kurgu</option>
+                      <option value="5">Animasyon</option>
+                      <option value="6">Drama</option>
+                      <option value="7">Tarihi</option>
+                      <option value="8">Romantik</option>
+                  </select>
+                  <span asp-validation-for="KategoriID" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="Resim" class="form-label">Resim</label>
+                  <input asp-for="Resim" type="text" class="form-control" id="inputNanme4">
+                  <span asp-validation-for="Resim" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="Dil" class="form-label">Dil</label>
+                  <input asp-for="Dil" type="text" class="form-control" id="inputNanme4" >
+                  <span asp-validation-for="Dil" class="text-danger small"></span>
+                </div>
+                <div class="col-12">
+                  <label asp-for="Aciklama" class="form-label">Aciklama</label>
+                  <textarea asp-for="Aciklama" type="text" class="form-control" id="inputNanme4" rows="8"></textarea>
+                  <span asp-validation-for="Aciklama" class="text-danger small"></span>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Kaydet</button>
+                </div>
+              </form><!-- Vertical Form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+

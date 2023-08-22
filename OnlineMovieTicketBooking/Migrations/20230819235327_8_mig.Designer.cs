@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineMovieTicketBooking.Data;
 
@@ -11,9 +12,11 @@ using OnlineMovieTicketBooking.Data;
 namespace OnlineMovieTicketBooking.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230819235327_8_mig")]
+    partial class _8_mig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +24,32 @@ namespace OnlineMovieTicketBooking.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Bilet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("SatinAlmaTarihi")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("SeansID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UyeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SeansID");
+
+                    b.HasIndex("UyeID");
+
+                    b.ToTable("Biletler");
+                });
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Film", b =>
                 {
@@ -44,39 +73,22 @@ namespace OnlineMovieTicketBooking.Migrations
 
                     b.Property<string>("FilmAdi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("KategoriID")
                         .HasMaxLength(50)
-                        .HasColumnType("int");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Resim")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Tur")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
-                    b.HasIndex("KategoriID");
+                    b.HasKey("Id");
 
                     b.ToTable("Filmler");
-                });
-
-            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Kategori", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("KategoriAdi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Kategoriler");
                 });
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Rol", b =>
@@ -138,9 +150,6 @@ namespace OnlineMovieTicketBooking.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<double>("Fiyat")
-                        .HasColumnType("float");
-
                     b.Property<bool>("PopulerSalon")
                         .HasColumnType("bit");
 
@@ -161,32 +170,6 @@ namespace OnlineMovieTicketBooking.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("SinemaSalonlari");
-                });
-
-            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Siparis", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("SatinAlmaTarihi")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("SeansID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UyeID")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SeansID");
-
-                    b.HasIndex("UyeID");
-
-                    b.ToTable("Siparişler");
                 });
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Uye", b =>
@@ -243,15 +226,23 @@ namespace OnlineMovieTicketBooking.Migrations
                     b.ToTable("Uyeler");
                 });
 
-            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Film", b =>
+            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Bilet", b =>
                 {
-                    b.HasOne("OnlineMovieTicketBooking.Entities.Kategori", "Kategori")
-                        .WithMany("Filmler")
-                        .HasForeignKey("KategoriID")
+                    b.HasOne("OnlineMovieTicketBooking.Entities.Seans", "Seans")
+                        .WithMany("Biletler")
+                        .HasForeignKey("SeansID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Kategori");
+                    b.HasOne("OnlineMovieTicketBooking.Entities.Uye", "Uye")
+                        .WithMany("Biletler")
+                        .HasForeignKey("UyeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Seans");
+
+                    b.Navigation("Uye");
                 });
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Seans", b =>
@@ -273,25 +264,6 @@ namespace OnlineMovieTicketBooking.Migrations
                     b.Navigation("Salon");
                 });
 
-            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Siparis", b =>
-                {
-                    b.HasOne("OnlineMovieTicketBooking.Entities.Seans", "Seans")
-                        .WithMany("Siparişler")
-                        .HasForeignKey("SeansID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("OnlineMovieTicketBooking.Entities.Uye", "Uye")
-                        .WithMany("Siparişler")
-                        .HasForeignKey("UyeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Seans");
-
-                    b.Navigation("Uye");
-                });
-
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Uye", b =>
                 {
                     b.HasOne("OnlineMovieTicketBooking.Entities.Rol", "Rol")
@@ -303,11 +275,6 @@ namespace OnlineMovieTicketBooking.Migrations
                     b.Navigation("Rol");
                 });
 
-            modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Kategori", b =>
-                {
-                    b.Navigation("Filmler");
-                });
-
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Rol", b =>
                 {
                     b.Navigation("Uyeler");
@@ -315,7 +282,7 @@ namespace OnlineMovieTicketBooking.Migrations
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Seans", b =>
                 {
-                    b.Navigation("Siparişler");
+                    b.Navigation("Biletler");
                 });
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.SinemaSalonu", b =>
@@ -325,7 +292,7 @@ namespace OnlineMovieTicketBooking.Migrations
 
             modelBuilder.Entity("OnlineMovieTicketBooking.Entities.Uye", b =>
                 {
-                    b.Navigation("Siparişler");
+                    b.Navigation("Biletler");
                 });
 #pragma warning restore 612, 618
         }
