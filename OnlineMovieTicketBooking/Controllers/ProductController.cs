@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OnlineMovieTicketBooking.Data;
 using OnlineMovieTicketBooking.Models;
 
@@ -9,7 +8,7 @@ namespace OnlineMovieTicketBooking.Controllers
     {
         private readonly AppDbContext _appDbContext;
 
-        public ProductController(AppDbContext appDbContext, IMapper mapper, IConfiguration configuration)
+        public ProductController(AppDbContext appDbContext)
         {
             _appDbContext = appDbContext;
         }
