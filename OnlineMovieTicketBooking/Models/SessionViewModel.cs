@@ -13,6 +13,7 @@ namespace OnlineMovieTicketBooking.Models
         public TimeSpan Saat { get; set; }
     }
 
+
     public class CreateSessionModel
     {
         [Required(ErrorMessage = "SalonID " + ErrorMessages.RequiredField)]

@@ -7,6 +7,7 @@ using OnlineMovieTicketBooking.Models;
 
 namespace OnlineMovieTicketBooking.Controllers
 {
+    [Authorize]
     public class SessionController : Controller
     {
         private readonly AppDbContext _appDbContext;
@@ -100,5 +101,7 @@ namespace OnlineMovieTicketBooking.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        
     }
 }

@@ -22,8 +22,8 @@
                 }
 	        <div class="col-sm-3">
 		        <div class="click_2_inner clearfix">
-			        <a href="#"><img src="~/uploads/@film.Resim" width="90%" height="300px"></a>
-				        <p class=""><a href="#" style="color:black">@film.FilmAdi </a></p>
+			        <a asp-action="ProductDetails" asp-route-id="@film.Id" ><img src="~/uploads/@film.Resim" width="90%" height="300px"></a>
+				        <p class=""><a asp-action="ProductDetails" asp-route-id="@film.Id" style="color:black">@film.FilmAdi </a></p>
  	             </div>
         	</div>
             }

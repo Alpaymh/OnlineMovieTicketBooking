@@ -1,0 +1,73 @@
+﻿@model List<SessionModel>
+@{
+    ViewData["Title"] = "Seans Seç - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" >
+    <div class="col-4 offset-4">
+        <h2 class="display-4 border-bottom text-center pb-2" ><br />Seans Seç<br /></h2><hr/>
+    </div>
+</div>
+
+<main>
+    <section id="center" sty class="center_detail clearfix">
+		  <div class="container ">
+			@{
+				string salonAdi = "";
+				string tarihNo = "";
+				double fiyat = 0;
+				string saat = "";
+					@foreach (var seans in Model)
+				{
+					if (seans.SalonAdi == salonAdi && seans.Tarih.ToString().Substring(0, 10) == tarihNo && seans.Fiyat == seans.Fiyat)
+					{
+						  	<li style="margin-left:359px;margin-top:10px"><a asp-controller="Product" asp-action="" asp-route-id="@seans.SeansId" type="button"
+							  style="height:30px;width:70px;font-size:15px;text-align:center" class="btn btn-secondary btntest-2">@seans.Saat.ToString().Substring(0, 5)</a></li>
+					}
+					else
+					{
+							<div class="row" style="margin-top:80px">
+			   	
+							<div class="center_detail_main clearfix">
+						  	<div class="col-sm-3">
+						  	</div>
+						  	<div class="col-sm-8">
+						   	<div class="center_detail_main_right clearfix">
+							 	<h2>@seans.SalonAdi </h2><br />
+						   	</div>
+						   	<div class="col-sm-4">
+							   	<div class="click_right clearfix">
+								 	<ul>
+								  	<li><i class="fa fa-calendar"></i> Tarih: @seans.Tarih.ToString().Substring(0, 10)</li>
+								  	<li><i class="fa fa-money"></i> Fiyat: @seans.Fiyat ₺</li>
+								  	<li><i class="fa fa-clock-o "></i> Saat: <a asp-controller="Payment" asp-action="Index" asp-route-id="@seans.SeansId" type="button" 
+									  style="height:30px;width:70px;font-size:15px;text-align:center" class="btn btn-secondary btntest-2">@seans.Saat.ToString().Substring(0, 5) </a></li>
+								 	</ul>
+								 	
+							 	</div>
+							</div>
+
+			  	
+						  	</div>
+							</div>
+							</div>
+							<div class="center_detail_main_right_1 clearfix">
+											
+								   	</div>
+						salonAdi = seans.SalonAdi;
+						tarihNo = seans.Tarih.ToString().Substring(0, 10);
+						fiyat = seans.Fiyat;
+					}
+					
+				}
+			  }
+			  
+			  </div>
+			</section>
+			<br />
+</main>
+
+
+				  
+				   

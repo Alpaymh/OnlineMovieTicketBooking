@@ -1,0 +1,58 @@
+﻿@model List<ProductModel>
+
+@{
+    ViewData["Title"] = "Film Detay - ";
+}
+<br />
+@foreach (var urunDetay in Model)
+	{
+		<section id="center" class="center_detail clearfix">
+		  <div class="container">
+		   <div class="row">
+				<div class="center_detail_main clearfix">
+				  <div class="col-sm-4">
+				   <div class="center_detail_main_left clearfix">
+					 <img src="~/uploads/@urunDetay.Resim" width="100%">
+				   </div>
+				  </div>
+				  <div class="col-sm-8">
+				   <div class="center_detail_main_right clearfix">
+					 <h2>@urunDetay.FilmAdi </h2><br />
+					 <h4>Konu:</h4>
+					 <p> @urunDetay.Aciklama</p>
+				   </div><br/><br/>
+				   
+				   <div class="center_detail_main_right_1 clearfix">
+					 <div class="col-sm-6 space_left">
+					 </div>
+						<a asp-action="Index" asp-controller="Screening" asp-route-id="@urunDetay.Id" type="button" style="height:45px;width:200px;font-size:21px;text-align:center" class="btn btn-secondary btntest-2">
+							<i class="fa-regular fa fa-pencil-square-o me-2"></i>&nbsp; Seans Seç</a>
+				   </div>
+				  </div>
+				</div>
+			   </div>
+			  </div>
+			</section>
+			<br />
+			<section id="detail" style="margin-bottom:450px">
+			 <div class="container">
+			  <div class="row">
+			   <div class="detail_main clearfix">
+				<div class="col-sm-4">
+				 <div class="detail_main_left clearfix">
+					   <div class="click_right clearfix">
+						 <h4>DETAYLAR</h4>
+						 <ul>
+						  <li><i class="fa fa-backward"></i> @urunDetay.FilmAdi </li>
+						  <li><i class="fa fa-list"></i> @urunDetay.KategoriAdi</li>
+						  <li><i class="fa fa-language"></i> @urunDetay.Dil</li>
+						 </ul>
+					 </div>
+				 </div>
+				</div>
+			   </div>
+			  </div>
+			 </div>
+			</section>
+			
+			}

@@ -29,5 +29,23 @@ namespace OnlineMovieTicketBooking.Controllers
                          }).ToList();
             return View(sorgu);
         }
+
+        public IActionResult ProductDetails(int id)
+        {
+            var sorgu = (from film in _appDbContext.Filmler
+                         join kategori in _appDbContext.Kategoriler on film.KategoriID equals kategori.Id
+                         where film.Id == id
+                         select new ProductModel
+                         {
+                             Id = film.Id,
+                             KategoriAdi = kategori.KategoriAdi,
+                             FilmAdi = film.FilmAdi,
+                             Resim = film.Resim,
+                             Dil = film.Dil,
+                             Aciklama = film.Aciklama,
+                             AktifMi = film.AktifMi
+                         }).ToList();
+            return View(sorgu);
+        }
     }
 }

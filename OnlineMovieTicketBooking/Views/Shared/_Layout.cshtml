@@ -193,6 +193,12 @@ var secondaryNav = $('.cd-secondary-nav'),
 });
 </script>
 <script   src="~/lib/toastrjs/toastr.min.js" asp-append-version="true"></script>
+<script asp-append-version="true">
+		function myFunction(selTag) {
+		  var x = selTag.options[selTag.selectedIndex].text;
+		  document.getElementById("demo").innerHTML = x;
+		}
+</script>
 @await RenderSectionAsync("Scripts", required: false)
 </body>
        
