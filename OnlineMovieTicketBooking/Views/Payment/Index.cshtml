@@ -1,5 +1,72 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@{
+    ViewData["Title"] = "Ödeme - ";
+}   
+
+<div class="row" >
+    <div class="col-4 offset-4">
+        <h2 class="display-4 border-bottom text-center pb-2" style="margin-left:22px"><br />Ödeme<br /></h2><hr/>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;display:flex;justify-content:center">
+    
+    
+    
+    <div class="col-4 d-flex" style="margin-top:80px">
+
+
+        <form method="post" asp-action="Index" style="margin-left:80px">
+            <p style="margin-left:10px">Ad ve Soyad:</p>
+            <label class="form-label small" style=" ">    
+                <input id="textInput" name="name" style="width:350px" type="text" class="form-control" placeholder="" value="" /></label>
+                <br />
+                <p style="margin-left:10px">Kart Numarası:</p>
+            <label class="form-label small" style=" ">    
+                <input id="textInput2" name="kartNo" style="width:350px" type="text" class="form-control" placeholder="" value="" /></label>
+                <br />
+              <p style="margin-left:10px">S.K.T: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; 
+                  Güvenlik Kodu:   </p>
+            <label class="form-label small">    
+                <input name="guvenlikNo" id="textInput3" style="width:175px" type="text" class="form-control" placeholder="" value="" /></label>
+            <label class="form-label small">    
+                <input name="skt" id="textInput4" style="width:175px;margin-left:px" type="number" class="form-control" placeholder="" value="" /></label>
+                 <br />
+                <button type="submit" style="height:30px;width:150px;font-size:15px;text-align:center;margin-top:20px;margin-left:90px" class="btn btn-secondary btntest-2">Ödemeyi Tamamla</button>
+
+        </form>
+    </div>
+  
+
+       <div class="col-4 offset-4" style="margin-left:20px;margin-top:80px">
+                    <div class="center_detail_main clearfix" >
+
+                            <div class="card" >
+                              <div class="card__front card__part" >
+                                <p class="card_numer" id="destination2" >**** **** *** 6258</p>
+                                <div class="card__space-75">
+                                  <span class="card__label" >Ad ve Soyad</span>
+                                  <p class="card__info" id="destination">Ad Soyad</p>
+                                </div>
+                                <div class="card__space-25">
+                                  <span class="card__label">S.K.T</span>
+                                        <p class="card__info" id="destination3">10/25</p>
+                                </div>
+                              </div>
+  
+                              <div class="card__back card__part">
+                                <div class="card__black-line"></div>
+                                <div class="card__back-content">
+                                  <div class="card__secret">
+                                    <p class="card__secret--last" id="destination4">420</p>
+                                  </div>
+                         
+                                </div>
+                              </div>
+  
+                            </div>
+
+                    </div>
+                  </div>
+
+</div>
+

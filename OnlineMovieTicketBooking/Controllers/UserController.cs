@@ -5,6 +5,7 @@ using NETCore.Encrypt.Extensions;
 using OnlineMovieTicketBooking.Data;
 using OnlineMovieTicketBooking.Entities;
 using OnlineMovieTicketBooking.Models;
+using System.Security.Claims;
 
 namespace OnlineMovieTicketBooking.Controllers
 {
@@ -22,11 +23,17 @@ namespace OnlineMovieTicketBooking.Controllers
             _configuration = configuration;
         }
 
+        private Uye UyeBul()
+        {
+            int uyeid = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Uye uye = _appDbContext.Uyeler.SingleOrDefault(x => x.Id == uyeid);
+            return uye;
+        }
+
         public IActionResult Index()
         {
             List<Uye> uyeler = _appDbContext.Uyeler.ToList();
             List<UserModel> users = uyeler.Select(x => _mapper.Map<UserModel>(x)).ToList();
-
             // LINQ işlemleri ile veri çekme kodu.
             //List<UserModel> model = new List<UserModel>();
             // var users = _appDbContext.Uyeler.Select(x => new UserModel 

@@ -275,6 +275,34 @@ namespace OnlineMovieTicketBooking.Controllers
             return View("Profile");
         }
 
+        public IActionResult PurchasedTicket()
+        {
+            Uye uye = UyeBul();
+
+            var sorgu = (from siparis in _appDbContext.Siparişler
+                         join uyeler in _appDbContext.Uyeler on siparis.UyeID equals uyeler.Id
+                         join seans in _appDbContext.Seanslar on siparis.SeansID equals seans.Id
+                         join salon in _appDbContext.SinemaSalonlari on seans.SalonId equals salon.Id
+                         join film in _appDbContext.Filmler on seans.FilmId equals film.Id
+                         where siparis.UyeID == uye.Id
+                         select new OrderModel
+                         {
+                             Id = siparis.Id,
+                             UyeAdi = uyeler.Ad,
+                             UyeSoyadi = uyeler.Soyad,
+                             UyeKullaniciAdi = uyeler.KullaniciAdi,
+                             UyeTelefon = uyeler.Telefon,
+                             UyeEmail = uyeler.Email,
+                             SalonAdi = salon.SalonAdi,
+                             FilmAdi = film.FilmAdi,
+                             FilmTarih = seans.Tarih,
+                             FilmSaat = seans.Saat,
+                             SatinAlmaTarihi = siparis.SatinAlmaTarihi,
+                             Fiyat = salon.Fiyat
+                         }).ToList();
+            return View(sorgu);
+        }
+
         public IActionResult Lagout()
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

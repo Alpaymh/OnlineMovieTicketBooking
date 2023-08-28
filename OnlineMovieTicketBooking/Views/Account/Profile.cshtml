@@ -68,11 +68,14 @@
                 <input name="password" style="width:300px" type="password" class="form-control" placeholder="" /></label>
             <button class="btn btn-secondary btntest-2">
             <i class="fa-regular fa-floppy-disk me-2"></i> &nbsp; Kaydet
-        </button>
+        </button><br />
+         <a asp-controller="Account" asp-action="PurchasedTicket" asp-route-id="@ViewData["Id"]" type="button" 
+                style="height:30px;width:120px;font-size:15px;text-align:center" class="btn btn-secondary">Satın Alınmış Biletler İçin Tıklayın.</a>
         @if (ViewData["result"] != null &&  ViewData["result"] == "PasswordChanged")
             {
                 <br><span class="text-success small">Şifre Güncellendi.</span>   
             }
+
             <div class="col-12 my-3"> 
                     <div class="mb-4">
                         <div asp-validation-summary="All" class="text-danger small"></div>

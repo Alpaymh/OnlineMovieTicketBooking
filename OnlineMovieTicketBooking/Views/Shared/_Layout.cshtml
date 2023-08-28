@@ -61,7 +61,7 @@
 					<i class="fa-solid fa-rigth-to-bracket me-2"></i> Giriş Yap 
 				</a></li>
 			    <li class="border_none_1"><a asp-area="" asp-controller="Account" asp-action="Register" style="color:black;font-size:small">
-					<i class="fa-solid fa-user me-2"></i> Kayıt Ol
+					 Kayıt Ol
 				</a></li>							
 			 }
 	     </ul>
@@ -94,7 +94,7 @@
 			<li><a class="font_tag" style="margin-right: 20px" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa</a></li>
 			<li><a class="font_tag" style="margin-right: 20px" asp-area="" asp-controller="Product" asp-action="Index">Filmler</a></li>
 			<li><a class="font_tag" style="margin-right: 20px" asp-area="" asp-controller="Theater" asp-action="Index">Salonlar</a></li>
-			<li><a class="font_tag" style="margin-right: 20px" href="~/Template/pricing.html">İletişim</a></li>
+			<li><a class="font_tag" style="margin-right: 20px" asp-area="" asp-controller="Home" asp-action="Contact">İletişim</a></li>
 			<li><a class="font_tag border_none_1" style="margin-right: 20px" href="~/Template/contact.html">Hakkımızda</a></li>
 
 
@@ -194,11 +194,37 @@ var secondaryNav = $('.cd-secondary-nav'),
 </script>
 <script   src="~/lib/toastrjs/toastr.min.js" asp-append-version="true"></script>
 <script asp-append-version="true">
-		function myFunction(selTag) {
-		  var x = selTag.options[selTag.selectedIndex].text;
-		  document.getElementById("demo").innerHTML = x;
-		}
+// Textbox elementini seçin
+var textInput = document.getElementById("textInput");
+var textInput2 = document.getElementById("textInput2");
+var textInput3 = document.getElementById("textInput3");
+var textInput4 = document.getElementById("textInput4");
+
+// Hedef elementini seçin
+var destinationDiv = document.getElementById("destination");
+var destinationDiv2 = document.getElementById("destination2");
+var destinationDiv3 = document.getElementById("destination3");
+var destinationDiv4 = document.getElementById("destination4");
+
+// Textbox'taki değer değiştiğinde tetiklenen olayı tanımlayın
+textInput.addEventListener("input", function() {
+    var textInputValue = textInput.value;
+    destinationDiv.textContent = textInputValue;
+});
+textInput2.addEventListener("input", function() {
+    var textInputValue2 = textInput2.value;
+    destinationDiv2.textContent = textInputValue2;
+});
+textInput3.addEventListener("input", function() {
+    var textInputValue3 = textInput3.value;
+    destinationDiv3.textContent = textInputValue3;
+});
+textInput4.addEventListener("input", function() {
+    var textInputValue4 = textInput4.value;
+    destinationDiv4.textContent = textInputValue4;
+});
 </script>
+
 @await RenderSectionAsync("Scripts", required: false)
 </body>
        

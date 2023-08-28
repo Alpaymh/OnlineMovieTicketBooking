@@ -20,7 +20,6 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Adı</th>
                     <th scope="col">Soyadı</th>
                     <th scope="col">Kullanıcı Adı</th>
@@ -40,7 +39,6 @@
                     @foreach (var order in Model)
                        {
                            <tr>
-                             <th scope="row">@order.Id</th>
                              <td>@order.UyeAdi</td>
                              <td>@order.UyeSoyadi</td>
                              <td>@order.UyeKullaniciAdi</td>
@@ -48,8 +46,8 @@
                              <td>@order.UyeEmail</td>
                              <td>@order.SalonAdi</td>
                              <td>@order.FilmAdi</td>
-                             <td>@order.FilmTarih</td>
-                             <td>@order.FilmSaat</td>
+                             <td>@order.FilmTarih.ToString().Substring(0, 10)</td>
+                             <td>@order.FilmSaat.ToString().Substring(0, 5)</td>
                              <td>@order.SatinAlmaTarihi</td>
                              <td>@order.Fiyat₺</td>
                              <td>

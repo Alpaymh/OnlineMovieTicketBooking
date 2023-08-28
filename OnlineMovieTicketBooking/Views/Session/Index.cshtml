@@ -21,7 +21,6 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Salon Adi</th>
                     <th scope="col">Film Adı</th>
                     <th scope="col">Tarih</th>
@@ -34,11 +33,10 @@
                     @foreach (var session in Model)
                        {
                            <tr>
-                             <th scope="row">@session.SeansId</th>
                              <td>@session.SalonAdi</td>
                              <td>@session.FilmAdi</td>
-                             <td>@session.Tarih</td>
-                             <td>@session.Saat</td> 
+                             <td>@session.Tarih.ToString().Substring(0, 10)</td>
+                             <td>@session.Saat.ToString().Substring(0, 5)</td> 
                              <td>@session.Fiyat₺</td>
                              <td>
                                  <a asp-action="Edit" asp-route-id="@session.SeansId" type="button" class="btn btn-primary">Güncelle</a>

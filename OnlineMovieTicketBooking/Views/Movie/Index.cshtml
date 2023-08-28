@@ -21,7 +21,6 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Film Adı</th>
                     <th scope="col">Kategori</th>
                     <th scope="col">Resmi</th>
@@ -36,10 +35,12 @@
                     @foreach (var movie in Model)
                        {
                            <tr>
-                             <th scope="row">@movie.Id</th>
                              <td>@movie.FilmAdi</td>
                              <td>@movie.KategoriAdi</td>
-                             <td>@movie.Resim</td>
+                             @{
+                                ViewData["ProfileImage"] = @movie.Resim;
+                                 <td><img src="~/uploads/@ViewData["ProfileImage"]" style="width: 800px; height: 150px; object-fit: cover;" class="img-thumbnail"/></td>
+                             }
                              <td>@movie.Dil</td>
                              <td>@movie.Aciklama</td>
                              <td>

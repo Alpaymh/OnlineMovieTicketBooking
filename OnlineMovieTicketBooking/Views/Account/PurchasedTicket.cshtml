@@ -1,0 +1,67 @@
+﻿@model List<OrderModel>
+@{
+    ViewData["Title"] = "Alınmış Biletler - ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main id="main" class="main" style="margin-bottom:500px">
+    <div class="row" >
+        <div class="col-4 offset-4">
+             <h2 class="display-4 border-bottom text-center pb-2"><br />Alınmış Biletler<br /></h2><hr/> 
+        </div>
+    </div>
+    <section class="section">
+     <div class="container">
+      <div class="row">
+        <div class="col" style="margin-left:310px">
+
+          <div class="card">
+            <div class="card-body">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col">Salon Adi</th>
+                    <th>-</th>
+                    <th scope="col">Film Adı</th>
+                    <th>-</th>
+                    <th scope="col">Seans Tarihi</th>
+                    <th>-</th>
+                    <th scope="col">Seans Saati</th>
+                    <th>-</th>
+                    <th scope="col">Fiyat</th>
+                    <th>-</th>
+                    <th scope="col">Satın Alınma Tarihi</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                           @foreach (var order in Model)
+                       {
+                           <tr>
+                             <td>@order.SalonAdi</td>
+                             <td>-</td>
+                             <td>@order.FilmAdi</td>
+                             <td>-</td>
+                             <td>@order.FilmTarih.ToString().Substring(0, 10)</td>
+                             <td>-</td>
+                             <td>@order.FilmSaat.ToString().Substring(0, 5)</td> 
+                             <td>-</td>
+                             <td>@order.Fiyat₺</td>
+                             <td>-</td>
+                             <td>@order.SatinAlmaTarihi</td>
+
+                          </tr>   
+                       }
+                </tbody>
+              </table>
+              <!-- End Table with stripped rows -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+     </div>
+    </section>
+
+  </main><!-- End #main -->

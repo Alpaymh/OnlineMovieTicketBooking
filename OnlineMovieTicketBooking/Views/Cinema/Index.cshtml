@@ -21,7 +21,6 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Salon Adı</th>
                     <th scope="col">Adres</th>
                     <th scope="col">Telefon</th>
@@ -35,7 +34,6 @@
                     @foreach (var cinema in Model)
                        {
                            <tr>
-                             <th scope="row">@cinema.Id</th>
                              <td>@cinema.SalonAdi</td>
                              <td>@cinema.Adres</td>
                              <td>@cinema.Telefon</td>
@@ -50,7 +48,10 @@
                                       }
                              </td> 
                              <td>@cinema.Fiyat₺</td>
-                             <td>@cinema.Resim</td>
+                             @{
+                                ViewData["ProfileImage"] = @cinema.Resim;
+                                 <td><img src="~/uploads/@ViewData["ProfileImage"]" style="width:400px; height: 150px; object-fit: cover;" class="img-thumbnail"/></td>
+                             }
                              
                              <td>
                                  <a asp-action="Edit" asp-route-id="@cinema.Id" type="button" class="btn btn-primary">Güncelle</a>

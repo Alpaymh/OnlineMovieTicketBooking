@@ -21,7 +21,6 @@
               <table class="table datatable">
                 <thead>
                   <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Ad</th>
                     <th scope="col">Soyad</th>
                     <th scope="col">Kullanıcı Adı</th>
@@ -38,7 +37,6 @@
                     @foreach (var user in Model)
                        {
                            <tr>
-                             <th scope="row">@user.Id</th>
                              <td>@user.Ad</td>
                              <td>@user.Soyad</td>
                              <td>@user.KullaniciAdi</td>
@@ -64,7 +62,10 @@
                                          <p>Admin</p>   
                                       }
                              </td>
-                             <td>@user.ProfilResimDosyası</td>
+                             @{
+                                ViewData["ProfileImage"] = @user.ProfilResimDosyası;
+                                 <td><img src="~/uploads/@ViewData["ProfileImage"]" style="width: 150px; height: 150px; object-fit: cover;" class="img-thumbnail"/></td>
+                             }
                              <td>
                                  <a asp-action="Edit" asp-route-id="@user.Id" type="button" class="btn btn-primary">Güncelle</a>
                                  <a asp-action="Delete" asp-route-id="@user.Id" onclick="return confirm('@user.KullaniciAdi adlı üyeyi silmek istediğinize emin misiniz?')" type="button" class="btn btn-danger">Sil</a>
